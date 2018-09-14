@@ -1,0 +1,10 @@
+.header-organization-banner a img{
+	width: auto !important;
+}
+form p{
+	padding-left: 0 !important;
+}
+input[type="text"],
+input[type="email"]{
+	width: 100%;
+}
