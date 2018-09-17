@@ -16,10 +16,10 @@ use BlockCypher\Client\AddressClient;
  Sign Up at  https://accounts.blockcypher.com/
  Verify Token at https://api.blockcypher.com/v1/tokens/<token>
  */
-$token = '<BlockCypher Token>';
+$token = getenv('blockcyphertoken');
 
 // File path to csv 
-$dir = __DIR__ . '/roster.csv';
+$dir = getenv('rosterdir') . 'roster.csv';
 
 if(isset($_POST) && ! empty($_POST) ){
 	
