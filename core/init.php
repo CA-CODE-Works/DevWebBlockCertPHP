@@ -48,7 +48,7 @@ if(isset($_POST) && ! empty($_POST) ){
 	$email = $_POST['email'];
 	
 	
-	file_put_contents($dir, "$fname $lname,$addressPublicKey,$email" . PHP_EOL, FILE_APPEND );
+	file_put_contents($dir, "$fname $lname,ecdsa-koblitz-pubkey:$addressPublicKey,$email" . PHP_EOL, FILE_APPEND );
 	
 }
 
