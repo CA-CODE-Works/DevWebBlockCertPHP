@@ -44,7 +44,11 @@ include("core/init.php");
 			<!-- Begin Page Title -->
 			<div class="section section-standout">
 				<div class="container">
+<<<<<<< HEAD
 					<h1 class="page-title">DevWebBlockCertPHP</h1>
+=======
+					<h1 class="page-title">DevWebBlockCertPHP TESTDeploy</h1>
+>>>>>>> 7b3ca686be7911d0e6780ff038af90114f8342c9
 				</div>
 			</div>
 			<!-- End of Page Title -->
