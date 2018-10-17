@@ -9,34 +9,33 @@ include("core/init.php");
 	<meta charset="utf-8">
 	<title>DevWebBlockCertPHP</title>
 	<!-- Include Head Tags -->
-	<!--#include virtual="ssi/head.html" -->
+	    <?php include_once("ssi/head.php"); ?>
 	<link rel="stylesheet" href="style.css" />
 </head>
 <body class="primary">
 	<header role="banner" id="header" class="global-header fixed compact">
 	  <div id="skip-to-content"><a href="#main-content">Skip to Main Content</a></div>
 		<!-- Include Utility Header -->
-				 <!--#include virtual="ssi/utility-header.html" -->
-				 
+				 <?php include_once("ssi/utility-header.php"); ?>
+
 				 <!-- Settings Bar -->
-				 <!--#include virtual="ssi/settings-bar.html" -->
+				 <?php include_once("ssi/settings-bar.php"); ?>
 
 				 <!-- Include Branding -->
-				 <!--#include virtual="ssi/branding.html" -->
+				 <?php include_once("ssi/branding.php"); ?>
 
 				 <!-- Include Mobile Controls -->
-				 <!--#include virtual="ssi/mobile-controls.html" -->
-		 
+				 <?php include_once("ssi/mobile-controls.php"); ?>
+
 				 <div class="navigation-search">
 						 <!-- Include Navigation -->
-						 <!--#include virtual="ssi/navigation.html" -->
+						 <?php include_once("ssi/navigation.php"); ?>
 						 <div id="head-search" class="">
-							 
+
 						 </div>
 				 </div>
 
 	  <div class="header-decoration"></div>
-
 	</header>
 
 	<div id="main-content" class="main-content">
@@ -66,15 +65,14 @@ include("core/init.php");
 					<div class="full-width">
 					</div>
 					<!-- Search Results -->
-					
+
 				</div>
 			</div>
 			<!-- End Main Content -->
 		</main>
 	</div>
 
-	<?php include("ssi/global-footer.html") ?>
-
+	<?php include("ssi/global-footer.php") ?>
 </body>
 </html>
 <style>
