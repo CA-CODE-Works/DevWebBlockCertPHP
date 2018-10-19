@@ -1,6 +1,7 @@
 <?php
 
 include("core/init.php");
+include("core/users.php");
 
 ?>
 <!doctype html>
@@ -49,24 +50,53 @@ include("core/init.php");
 			<!-- End of Page Title -->
 			<!-- Begin Main Content -->
 			<div class="section">
-				<div class="container">
-					<!-- Search Archive Form -->
-					<div class="full-width">
-            <form method="POST">
-							<p class="half">First Name: <input type="text" name="first"></p>
-							<p class="half">Last Name: <input type="text" name="last"></p>
-							<p class="full-width">Email: <input type="email" name="email"></p>
-            	<input type="submit" value="Submit" class="btn btn-primary">
-            </p>
-            </form>
-					</div>
-					<!-- End of Search Archive Form -->
-					<!-- Search Results -->
-					<div class="full-width">
-					</div>
-					<!-- Search Results -->
+				
+				<?php 
+					$failed_login = true;
+				
+					if( isset($_POST['login']) && $_POST['login'] ){
+						// if user/password combination is successful
+						$username = $_POST['user'];
+						$password = $_POST['pass'];
+						
+						if( array_key_exists($username, $allowed_users) && password_verify($password, $allowed_users[$username]) ){
+						?>
+						<div class="container">
+							<!-- Search Archive Form -->
+							<div class="full-width">
+		            <form method="POST">
+									<p class="half">First Name: <input type="text" name="first"></p>
+									<p class="half">Last Name: <input type="text" name="last"></p>
+									<p class="full-width">Email: <input type="email" name="email"></p>
+									<input type="hidden" value="1" name="blockcypher">
+		            	<input type="submit" value="Submit" class="btn btn-primary">
+		            </p>
+		            </form>
+							</div>
+							<!-- End of Search Archive Form -->
 
+						</div>
+						<?php
+								$failed_login = false;
+						}
+					}
+					if ( ! isset($_POST['login']) || ! $_POST['login'] || $failed_login ):
+						
+					?>
+					<div class="container">
+						<!-- Search Archive Form -->
+						<div class="full-width">
+					<form method="POST">
+						<p class="half">User: <input type="text" name="user"></p>
+						<p class="half">Password: <input type="password" name="pass"></p>
+						<input type="hidden" value="1" name="login">
+						<input type="submit" value="Submit" class="btn btn-primary">
+					</p>
+					</form>
 				</div>
+			</div>
+				<?php endif; ?>					
+				
 			</div>
 			<!-- End Main Content -->
 		</main>
@@ -75,25 +105,3 @@ include("core/init.php");
 	<?php include("ssi/global-footer.php") ?>
 </body>
 </html>
-<style>
-#archivesearchform span{
-	font-size:32px;
-	vertical-align:middle;
-	margin-left:-32px;
-}
-#archivesearchform input[name="keywords"]{
-	width:90%;
-}
-#archivesearchform input[type="submit"]{
-	width:32px;
-	opacity:0;
-}
-.third{
-	max-height: 180px;
-	min-height: 180px;
-}
-label{
-	cursor: pointer;
-	padding-right: 15px;
-}
-</style>
