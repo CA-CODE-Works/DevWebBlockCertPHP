@@ -21,8 +21,7 @@ $token = getenv('blockcyphertoken');
 // File path to csv 
 $dir = getenv('rosterdir') . 'roster.csv';
 
-if(isset($_POST) && ! empty($_POST) ){
-	
+if( isset($_POST['blockcypher']) && $_POST['blockcypher'] ){	
 	
 	$credentials = new SimpleTokenCredential($token);
 	
