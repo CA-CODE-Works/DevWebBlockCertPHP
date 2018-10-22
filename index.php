@@ -8,7 +8,7 @@ include("core/users.php");
 <html class="no-js" lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DevWebBlockCertPHP</title>
+	<title>Blockchain Demo - BlockCerts</title>
 	<!-- Include Head Tags -->
 	    <?php include_once("ssi/head.php"); ?>
 	<link rel="stylesheet" href="style.css" />
@@ -44,7 +44,7 @@ include("core/users.php");
 			<!-- Begin Page Title -->
 			<div class="section section-standout">
 				<div class="container">
-					<h1 class="page-title">DevWebBlockCertPHP</h1>
+					<h1 class="page-title">Blockchain Demo - BlockCerts</h1>
 				</div>
 			</div>
 			<!-- End of Page Title -->
