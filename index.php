@@ -8,7 +8,7 @@ include("core/users.php");
 <html class="no-js" lang="en">
 <head>
 	<meta charset="utf-8">
-	<title>DevWebBlockCertPHP</title>
+	<title>Blockchain Demo - BlockCerts</title>
 	<!-- Include Head Tags -->
 	    <?php include_once("ssi/head.php"); ?>
 	<link rel="stylesheet" href="style.css" />
