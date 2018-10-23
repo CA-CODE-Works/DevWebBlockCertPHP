@@ -1,10 +1,8 @@
-<?php 
-$tokenuser = getenv('tokenuser');
+<?php
+//$tokenuser = getenv('tokenuser');
 
 $allowed_users = array(
-	'admin' => password_hash($tokenuser, PASSWORD_BCRYPT), 
+	'admin' => password_hash('koryaka', PASSWORD_BCRYPT),
 );
 
 ?>
-
-

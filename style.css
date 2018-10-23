@@ -9,3 +9,21 @@ input[type="password"]{
 }
 .mobile-controls {
 min-height: 80px;}
+
+.my-wallet {
+  right: 10px;
+}
+
+.my-wallet img {
+  width:70px !important; height: 70px;
+  position: relative;
+  top: 10px;
+  z-index: 9;
+}
+
+.compact .my-wallet img {
+	top: 3px;
+	width:50px !important; height: 50px;
+}
+
+.img-centered {display: block;margin: 0 auto;}
