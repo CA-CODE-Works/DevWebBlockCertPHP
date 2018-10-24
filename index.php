@@ -126,7 +126,8 @@ include("core/users.php");
 						<!-- Search Archive Form -->
 
 
-
+<div class="row p-b-lg p-t-md">
+							        <div class="offset-quarter half">
 				<section id="loginForm2" class="section-understated p-a-lg shadow">
 					<form method="POST">
 						<!--Form states-->
@@ -156,9 +157,9 @@ include("core/users.php");
 					 </form>
 
 				</section>
+				</div>
 
-
-
+				</div>
 
 
 			</div>
