@@ -3,52 +3,19 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require 'php-client/cmd/bootstrap.php';
-use BlockCypher\Auth\SimpleTokenCredential;
-use BlockCypher\Rest\ApiContext;
-
-// ... other classes
-use BlockCypher\Api\Address;
-use BlockCypher\Client\AddressClient;
-
 /*
  This is your BlockCypher token, 
  Sign Up at  https://accounts.blockcypher.com/
  Verify Token at https://api.blockcypher.com/v1/tokens/<token>
  */
 $token = getenv('blockcyphertoken');
-
+define("BLOCKCYPHERTOKEN", "2eee7613a99749bcbd725e51c4b125ca"); // getenv('blockcyphertoken'));
 // File path to csv 
 $dir = getenv('rosterdir') . 'roster.csv';
+define("ROSTERDIR", 'roster.csv'); //getenv('rosterdir') . 'roster.csv');
 
-if( isset($_POST['blockcypher']) && $_POST['blockcypher'] ){	
-	
-	$credentials = new SimpleTokenCredential($token);
-	
-	$config = array(
-		'log.LogEnabled' => true,
-		'log.FileName' => 'BlockCypher.log',
-		'log.LogLevel' => 'DEBUG', // PLEASE USE `FINE` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
-		'validation.level' => 'log',
-		// 'http.CURLOPT_CONNECTTIMEOUT' => 30
-	);
-	
-	$apiContext = ApiContext::create(
-		'main', 'btc', 'v1',
-		$credentials,
-		$config
-	);
-	
-	$addressClient = new AddressClient($apiContext);
-	$addressPublicKey = $addressClient->generateAddress($apiContext)->getPublic();
-	
-	$fname = $_POST['first'];
-	$lname = $_POST['last'];
-	$email = $_POST['email'];
-	
-	$headers = "name,pubkey,identity" . PHP_EOL;
-	file_put_contents($dir, "$headers$fname $lname,ecdsa-koblitz-pubkey:$addressPublicKey,$email" . PHP_EOL, FILE_APPEND );
-	
-}
+
+// Include core files
+include("core/users.php");
 
 ?>
