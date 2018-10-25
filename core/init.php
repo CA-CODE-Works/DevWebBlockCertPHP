@@ -12,8 +12,8 @@ define("BLOCKCYPHERTOKEN", getenv('blockcyphertoken'));
 // File path to csv
 define("ROSTERDIR", getenv('rosterdir') . 'roster.csv');
 
-$generate_template_url = "odi-certtools.devblockcert.svc";
-$issue_cert_url = "devcertissuer.devblockcert.svc";
+$generate_template_url = "odi-certtools.devblockcert.svc:9000";
+$issue_cert_url = "devcertissuer.devblockcert.svc:9000";
 
 // Include core files
 include("core/users.php");
