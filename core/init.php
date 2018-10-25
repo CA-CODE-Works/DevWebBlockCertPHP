@@ -3,52 +3,47 @@
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
-require 'php-client/cmd/bootstrap.php';
-use BlockCypher\Auth\SimpleTokenCredential;
-use BlockCypher\Rest\ApiContext;
-
-// ... other classes
-use BlockCypher\Api\Address;
-use BlockCypher\Client\AddressClient;
-
 /*
- This is your BlockCypher token, 
+ This is your BlockCypher token,
  Sign Up at  https://accounts.blockcypher.com/
  Verify Token at https://api.blockcypher.com/v1/tokens/<token>
  */
-$token = getenv('blockcyphertoken');
+define("BLOCKCYPHERTOKEN", getenv('blockcyphertoken')); 
+// File path to csv
+define("ROSTERDIR", getenv('rosterdir') . 'roster.csv');
 
-// File path to csv 
-$dir = getenv('rosterdir') . 'roster.csv';
+$generate_template_url = "odi-certtools.devblockcert.svc";
+$issue_cert_url = "devcertissuer.devblockcert.svc";
 
-if( isset($_POST['blockcypher']) && $_POST['blockcypher'] ){	
-	
-	$credentials = new SimpleTokenCredential($token);
-	
-	$config = array(
-		'log.LogEnabled' => true,
-		'log.FileName' => 'BlockCypher.log',
-		'log.LogLevel' => 'DEBUG', // PLEASE USE `FINE` LEVEL FOR LOGGING IN LIVE ENVIRONMENTS
-		'validation.level' => 'log',
-		// 'http.CURLOPT_CONNECTTIMEOUT' => 30
-	);
-	
-	$apiContext = ApiContext::create(
-		'main', 'btc', 'v1',
-		$credentials,
-		$config
-	);
-	
-	$addressClient = new AddressClient($apiContext);
-	$addressPublicKey = $addressClient->generateAddress($apiContext)->getPublic();
-	
-	$fname = $_POST['first'];
-	$lname = $_POST['last'];
-	$email = $_POST['email'];
-	
-	$headers = "name,pubkey,identity" . PHP_EOL;
-	file_put_contents($dir, "$headers$fname $lname,ecdsa-koblitz-pubkey:$addressPublicKey,$email" . PHP_EOL, FILE_APPEND );
-	
+// Include core files
+include("core/users.php");
+
+/*
+  PHP Curl Options
+  http://php.net/manual/en/function.curl-setopt.php
+  Examples:
+  - CURLOPT_POST => true
+  - CURLOPT_RETURNTRANSFER => 1
+  - CURLOPT_HTTPHEADER => array('Content-type: application/json; charset=UTF-8')
+*/
+// Add additional curl options here
+$curl_options = array(
+  CURLOPT_POST => true,
+);
+
+// This function makes a curl request
+function makeCurl( $url , $options = array() ){
+
+  // initialize curl
+  $ch = curl_init($url);
+
+  // Set curl request options
+  curl_setopt_array ( $ch, $options );
+
+  $resp = curl_exec($ch);
+
+  curl_close($ch);
+  return $resp;
 }
 
 ?>
