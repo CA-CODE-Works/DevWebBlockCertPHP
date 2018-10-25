@@ -1,5 +1,7 @@
-<?php 
-	$user = isset($_POST['user']) ? $_POST['user'] : '';
+<?php
+
+$user = isset($_POST['user']) ? $_POST['user'] : '';
+
 ?>
 <!-- Begin Page Title -->
 <div class="section section-impact">
