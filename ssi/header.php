@@ -8,7 +8,7 @@
 
 			 <!-- Include Branding -->
 			 <div class="my-wallet pos-abs">
-				 <img src="./ca-vallet-logo.png" alt="My CA Wallet logo" class="pull-right">
+				 <button data-toggle="modal" class="my-wallet-btn" data-target="#my-ca-wallet"><img src="./ca-vallet-logo.png" alt="My CA Wallet logo" class="pull-right"></button>
 			 </div>
 			 <?php include_once("ssi/branding.php"); ?>
 
