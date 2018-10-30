@@ -17,7 +17,7 @@
             <script>
               jQuery(document).ready(function() {
                 $('.my-wallet img').click( function(e){
-  		             jQuery.get(<?= $wallet_curl; ?>, function(response) {
+  		             jQuery.get("devcertissuer.devblockcert.svc:9000/wallet", function(response) {
                      document.getElementById('my-ca-wallet').getElementsByClassName('modal-body')[0].innerHTML = response;
                    });
                 });
