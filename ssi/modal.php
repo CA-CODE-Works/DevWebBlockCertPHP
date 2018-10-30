@@ -6,7 +6,7 @@
                             <h4 class="modal-title">My CA Wallet</h4>
                         </div>
                         <div class="modal-body">
-                            
+
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -14,3 +14,12 @@
                     </div>
                 </div>
             </div>
+            <script>
+              jQuery(document).ready(function() {
+                $('.my-wallet img').click( function(e){
+  		             jQuery.post(<?= $wallet_curl; ?>, function(response) {
+                     document.getElementById('my-ca-wallet').getElementsByClassName('modal-body')[0].innerHTML = response;
+                   });
+                });
+              });
+            </script>
