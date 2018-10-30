@@ -17,7 +17,7 @@
             <script>
               jQuery(document).ready(function() {
                 $('.my-wallet img').click( function(e){
-  		             jQuery.post(<?= $wallet_curl; ?>, function(response) {
+  		             jQuery.get(<?= $wallet_curl; ?>, function(response) {
                      document.getElementById('my-ca-wallet').getElementsByClassName('modal-body')[0].innerHTML = response;
                    });
                 });
