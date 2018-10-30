@@ -18,6 +18,12 @@ include("core/init.php");
 	<div id="main-content" class="main-content">
 		<main class="main-primary">
 
+
+		<!--MY CA WALLET MODAL--> 
+		<?php include_once("ssi/modal.php"); ?>
+
+
+
 			<!-- Begin Main Content -->
 
 			<?php

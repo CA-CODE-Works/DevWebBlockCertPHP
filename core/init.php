@@ -27,9 +27,7 @@ include("core/users.php");
   - CURLOPT_HTTPHEADER => array('Content-type: application/json; charset=UTF-8')
 */
 // Add additional curl options here
-$curl_options = array(
-  CURLOPT_POST => true,
-);
+$curl_options = array();
 
 // This function makes a curl request
 function makeCurl( $url , $options = array() ){

@@ -26,4 +26,13 @@ min-height: 80px;}
 	width:50px !important; height: 50px;
 }
 
+.my-wallet-btn {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 999;
+}
+
 .img-centered {display: block;margin: 0 auto;}
